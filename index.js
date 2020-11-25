@@ -58,6 +58,9 @@ const run = async () => {
     })
 
     socket.on('close', (hadError) => {
+      if (hadError) {
+        console.warn('Some error occured when client disconnected.')
+      }
       console.debug('Client disconnected')
       connectedClientSocket = undefined
     })
